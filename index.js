@@ -16,7 +16,7 @@ const makeConnection = mysql.createConnection({
 
 makeConnection.connect((err) => {
     if (err) throw err;
-    console.log('Connected to the database.');
+    console.log('You are now connected to the database');
     startApp();
 });
 
@@ -25,7 +25,7 @@ function startApp() {
         .prompt({
             name: 'action',
             type: 'list',
-            message: 'What would you like to do?',
+            message: 'Please select an option',
             choices: [
                 'View departments',
                 'View roles',
@@ -62,7 +62,7 @@ function startApp() {
                     break;
                 case 'Exit':
                     connection.end();
-                    console.log('Disconnected from the database.');
+                    console.log('Disconnected from the database');
                     break;
             }
         });
@@ -117,7 +117,7 @@ function addDepartment() {
                 },
                 (err, res) => {
                     if (err) throw err;
-                    console.log('Department added successfully!');
+                    console.log('Success!');
                     startApp();
                 }
             );
@@ -130,17 +130,17 @@ function addRole() {
             {
                 name: 'title',
                 type: 'input',
-                message: 'Enter the title of the role:',
+                message: 'Input the title for the role:',
             },
             {
                 name: 'salary',
                 type: 'input',
-                message: 'Enter the salary for the role:',
+                message: 'Enter the role salary:',
             },
             {
                 name: 'department',
                 type: 'input',
-                message: 'Enter the department ID for the role:',
+                message: 'Enter the department ID for said role:',
             },
         ])
         .then((answer) => {
@@ -153,7 +153,7 @@ function addRole() {
                 },
                 (err, res) => {
                     if (err) throw err;
-                    console.log('Role added successfully!');
+                    console.log('Success!');
                     startApp();
                 }
             );
@@ -181,7 +181,7 @@ function addEmployee() {
             {
                 name: 'manager',
                 type: 'input',
-                message: "Enter the manager ID for the employee (if applicable):",
+                message: "Enter the manager ID for the employee (leave blank if none):",
             },
         ])
         .then((answer) => {
