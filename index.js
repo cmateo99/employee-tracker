@@ -23,7 +23,7 @@ makeConnection.connect((err) => {
 function startApp() {
     inquirer
         .prompt({
-            name: 'action',
+            name: 'userSelect',
             type: 'list',
             message: 'Please select an option',
             choices: [
@@ -38,7 +38,7 @@ function startApp() {
             ],
         })
         .then((answer) => {
-            switch (answer.action) {
+            switch (answer.userSelect) {
                 case 'View all departments':
                     viewDepartments();
                     break;
@@ -159,7 +159,6 @@ function addRole() {
             );
         });
 }
-
 function addEmployee() {
     inquirer
         .prompt([
